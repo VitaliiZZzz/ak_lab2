@@ -1,0 +1,9 @@
+#include <iostream>
+#include "Calculator.h"
+
+int main()
+{
+    int p = Add(5, 2);
+    std::cout << "5 + 5 = " << Add(5, 5) << std::endl;
+    return 0;
+}
