@@ -1,0 +1,20 @@
+CXX = g++
+
+RM = rm
+
+CFLAGS = -c -Wall
+
+output: main.o Calculator.o Calculator.a
+	$(CXX) main.o Calculator.o Calculator.a -o output
+
+Calculator.a: Calculator.o
+	ar cr Calculator.a Calculator.o
+
+Calculator.o: src/Calculator.cpp src/Calculator.h
+	$(CXX) $(CFLAGS) src/Calculator.cpp -o Calculator.o
+
+main.o: src/main.cpp src/Calculator.h
+	$(CXX) $(CFLAGS) src/main.cpp -o main.o
+
+clean:
+	$(RM) *.o *.a output
